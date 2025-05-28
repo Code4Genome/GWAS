@@ -49,7 +49,6 @@ related<-read.table("Related.genome",header=T)
 print(related)
 summary(related$PI_HAT)
 
-#Select one sample from each duplicated pair
 duplicate<-related[,c("FID1","IID1")]
 duplicate
 
