@@ -16,7 +16,7 @@
 
  ## 📁 Repository Structure
 
-├── data/ # raw data processed in bash using PLINK     
+├── data/ # example dataset (raw data) processed in bash using PLINK     
 ├── figures/ # QQ plots, Manhattan plot (linear and circular)    
 ├── scripts/ # Bash, R, and Python         
 ├── README.md   
