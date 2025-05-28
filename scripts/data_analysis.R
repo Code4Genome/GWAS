@@ -71,10 +71,7 @@ lambda.nocov
 pc<-read.table("PCA.eigenvec",header=T)
 head(pc)
 
-fam<-read.table("HCVfullQCnodup.fam",header=F)
-names(fam)<-c("FID","IID","FA","MO","SEX","AFS")
-
-fam<-read.table("VTE_fullQC.fam",header=F)
+fam<-read.table("HAfullQC.fam",header=F)
 names(fam)<-c("FID","IID","FA","MO","SEX","AFS")
 
 pc<-merge(pc,fam,by=c("FID","IID"))
@@ -82,7 +79,6 @@ pc<-merge(pc,fam,by=c("FID","IID"))
 plot(pc$PC1~pc$PC2,pch=19)
 points(pc[pc$AFS==2,]$PC1~pc[pc$AFS==2,]$PC2,pch=19,col="red")
 
-#my data
 plot(pc$PC1~pc$PC2, lab)
 points(pc[pc$AFS==2,]$PC1~pc[pc$AFS==2,]$PC2,col="red")
 
@@ -92,10 +88,9 @@ text(pc$PC1, pc$PC2,
      cex = 0.8,
      col = "red")
 
-#Model adjusted on PC1 and PC2 #Clara's Dataset
-#PC5 on the GWAS test (my test)
+#PC
 
-assoc.PC<-read.table("HCVPC.assoc.logistic",header=T)
+assoc.PC<-read.table("HAPC.assoc.logistic",header=T)
 head(assoc.PC)
 assoc.PC<-subset(assoc.PC,assoc.PC$TEST=="ADD")
 
@@ -125,7 +120,7 @@ write.table(chr19,file="chr19.txt",col.names=T,row.names=F,sep="\t",quote=F)
 
 
 # Model adjusted on 10 PCs
-assoc.PC10<-read.table("HCVPC10.assoc.logistic",header=T)
+assoc.PC10<-read.table("HAPC10.assoc.logistic",header=T)
 assoc.PC10<-subset(assoc.PC10,assoc.PC10$TEST=="ADD")
 
 qq(assoc.PC10$P)
